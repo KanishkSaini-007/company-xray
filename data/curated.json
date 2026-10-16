@@ -1,0 +1,14 @@
+[
+ {"id":"RELIANCE","name":"Reliance Industries","market":"India","exchange":"NSE","currency":"INR","unit":"Rs crore","period":"Q1 FY2026-27 (Apr-Jun 2026), revenue by segment","periodType":"quarter",
+  "source":"RIL media release, Q1 FY2026-27","sourceUrl":"https://www.ril.com","filed":"2026-07-17",
+  "note":"Curated by hand from the company's results release. Growth is the YoY % the company reports for the quarter. Oil & Gas EBITDA margin and Jio margin are far above the group; revenue size and margin are different things.",
+  "segments":[{"name":"Oil to Chemicals (O2C)","cur":201803,"growth":30.4,"margin":8.4},{"name":"Retail (RRVL)","cur":90408,"growth":7.4,"margin":7.9},{"name":"Digital Services (Jio Platforms)","cur":45961,"growth":12.0,"margin":53.3},{"name":"Oil and Gas","cur":6298,"growth":3.2,"margin":79.0}]},
+ {"id":"HUL","name":"Hindustan Unilever","market":"India","exchange":"NSE","currency":"INR","unit":"Rs crore","period":"FY2025-26 (Apr 2025-Mar 2026), segment revenue","periodType":"year",
+  "source":"HUL results, March quarter and FY2026 (hul.co.in)","sourceUrl":"https://www.hul.co.in/files/hul-mq-26-results.pdf","filed":"2026-04",
+  "note":"Curated by hand from HUL's audited results (segment revenue, FY26 vs FY25). Cross-checked against the FY2025-26 annual report figures.",
+  "segments":[{"name":"Home Care","cur":23672,"prev":22958},{"name":"Beauty & Wellbeing","cur":14990,"prev":13523},{"name":"Personal Care","cur":9564,"prev":9166},{"name":"Foods","cur":14061,"prev":13501},{"name":"Others (incl. exports)","cur":2181,"prev":2180}]},
+ {"id":"NESTLE","name":"Nestle","market":"Global","exchange":"SIX Swiss","currency":"CHF","unit":"CHF million","period":"FY2025 (Jan-Dec 2025), sales by product group","periodType":"year",
+  "source":"Nestle full-year results 2025","sourceUrl":"https://www.nestle.com","filed":"2026-02-19",
+  "note":"Curated by hand from Nestle's full-year 2025 results. Growth is reported sales growth (2025 vs 2024), not organic growth.",
+  "segments":[{"name":"Powdered & liquid beverages","cur":25144,"prev":24598},{"name":"PetCare","cur":18406,"prev":18882},{"name":"Nutrition & Health Science","cur":14304,"prev":15137},{"name":"Prepared dishes & cooking aids","cur":10114,"prev":10711},{"name":"Milk products & ice cream","cur":9698,"prev":10397},{"name":"Confectionery","cur":8696,"prev":8449},{"name":"Water","cur":3128,"prev":3180}]}
+]
