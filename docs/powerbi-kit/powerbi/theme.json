@@ -1,0 +1,17 @@
+{
+  "name": "CompanyXRay Dark",
+  "dataColors": ["#4FC3F7", "#81C784", "#FFB74D", "#E57373", "#BA68C8", "#4DB6AC", "#FFF176", "#90A4AE"],
+  "background": "#0E1117",
+  "foreground": "#E6E6E6",
+  "tableAccent": "#4FC3F7",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [{ "solid": { "color": "#161B22" }, "transparency": 0 }],
+        "border": [{ "show": true, "color": "#30363D", "radius": 8 }],
+        "title": [{ "fontColor": "#E6E6E6", "fontSize": 12 }],
+        "labels": [{ "color": "#C9D1D9" }]
+      }
+    }
+  }
+}
