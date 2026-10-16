@@ -1,0 +1,611 @@
+{
+ "generated": "2026-10-16T16:46:46.012Z",
+ "companies": [
+  {
+   "id": "AAPL",
+   "name": "Apple",
+   "market": "US",
+   "exchange": "Nasdaq",
+   "currency": "USD",
+   "unit": "USD million",
+   "period": "Fiscal year ended 2025-09-27, revenue by product / service line",
+   "periodType": "year",
+   "source": "Apple Inc. Form 10-K (SEC EDGAR)",
+   "sourceUrl": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+   "filed": "2025-10-31",
+   "note": "Pulled automatically from the 10-K inline XBRL tags on SEC EDGAR. Segment lines are the ones the company tags itself; sub-lines that would double count were left out.",
+   "segments": [
+    {
+     "name": "iPhone",
+     "cur": 209586,
+     "prev": 201183,
+     "growth": 4.2
+    },
+    {
+     "name": "Mac",
+     "cur": 33708,
+     "prev": 29984,
+     "growth": 12.4
+    },
+    {
+     "name": "IPad",
+     "cur": 28023,
+     "prev": 26694,
+     "growth": 5
+    },
+    {
+     "name": "Wearables, Home & Accessories",
+     "cur": 35686,
+     "prev": 37005,
+     "growth": -3.6
+    },
+    {
+     "name": "Services",
+     "cur": 109158,
+     "prev": 96169,
+     "growth": 13.5
+    }
+   ]
+  },
+  {
+   "id": "MSFT",
+   "name": "Microsoft",
+   "market": "US",
+   "exchange": "Nasdaq",
+   "currency": "USD",
+   "unit": "USD million",
+   "period": "Fiscal year ended 2026-06-30, revenue by product / service line",
+   "periodType": "year",
+   "source": "MICROSOFT CORP Form 10-K (SEC EDGAR)",
+   "sourceUrl": "https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/msft-20260630.htm",
+   "filed": "2026-07-29",
+   "note": "Pulled automatically from the 10-K inline XBRL tags on SEC EDGAR. Segment lines are the ones the company tags itself; sub-lines that would double count were left out.",
+   "segments": [
+    {
+     "name": "Server products & cloud (Azure)",
+     "cur": 129425,
+     "prev": 98435,
+     "growth": 31.5
+    },
+    {
+     "name": "Microsoft 365 Commercial",
+     "cur": 101997,
+     "prev": 87767,
+     "growth": 16.2
+    },
+    {
+     "name": "Xbox",
+     "cur": 21790,
+     "prev": 23455,
+     "growth": -7.1
+    },
+    {
+     "name": "LinkedIn",
+     "cur": 19817,
+     "prev": 17812,
+     "growth": 11.3
+    },
+    {
+     "name": "Windows & Devices",
+     "cur": 17084,
+     "prev": 17314,
+     "growth": -1.3
+    },
+    {
+     "name": "Search & news advertising",
+     "cur": 15176,
+     "prev": 13878,
+     "growth": 9.4
+    },
+    {
+     "name": "Microsoft 365 Consumer",
+     "cur": 9175,
+     "prev": 7404,
+     "growth": 23.9
+    },
+    {
+     "name": "Dynamics",
+     "cur": 9006,
+     "prev": 7827,
+     "growth": 15.1
+    },
+    {
+     "name": "Enterprise & partner services",
+     "cur": 8260,
+     "prev": 7760,
+     "growth": 6.4
+    }
+   ]
+  },
+  {
+   "id": "AMZN",
+   "name": "Amazon",
+   "market": "US",
+   "exchange": "Nasdaq",
+   "currency": "USD",
+   "unit": "USD million",
+   "period": "Fiscal year ended 2025-12-31, revenue by product / service line",
+   "periodType": "year",
+   "source": "AMAZON COM INC Form 10-K (SEC EDGAR)",
+   "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000004/amzn-20251231.htm",
+   "filed": "2026-02-06",
+   "note": "Pulled automatically from the 10-K inline XBRL tags on SEC EDGAR. Segment lines are the ones the company tags itself; sub-lines that would double count were left out.",
+   "segments": [
+    {
+     "name": "Online Stores",
+     "cur": 269287,
+     "prev": 247029,
+     "growth": 9
+    },
+    {
+     "name": "Physical Stores",
+     "cur": 22561,
+     "prev": 21215,
+     "growth": 6.3
+    },
+    {
+     "name": "Third-party seller services",
+     "cur": 172162,
+     "prev": 156146,
+     "growth": 10.3
+    },
+    {
+     "name": "Advertising",
+     "cur": 68635,
+     "prev": 56214,
+     "growth": 22.1
+    },
+    {
+     "name": "Subscriptions (Prime etc.)",
+     "cur": 49619,
+     "prev": 44374,
+     "growth": 11.8
+    },
+    {
+     "name": "AWS",
+     "cur": 128725,
+     "prev": 107556,
+     "growth": 19.7
+    },
+    {
+     "name": "Other services",
+     "cur": 5935,
+     "prev": 5425,
+     "growth": 9.4
+    }
+   ]
+  },
+  {
+   "id": "GOOGL",
+   "name": "Alphabet (Google)",
+   "market": "US",
+   "exchange": "Nasdaq",
+   "currency": "USD",
+   "unit": "USD million",
+   "period": "Fiscal year ended 2025-12-31, revenue by reportable segment",
+   "periodType": "year",
+   "source": "Alphabet Inc. Form 10-K (SEC EDGAR)",
+   "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/goog-20251231.htm",
+   "filed": "2026-02-05",
+   "note": "Pulled automatically from the 10-K inline XBRL tags on SEC EDGAR. Segment lines are the ones the company tags itself; sub-lines that would double count were left out.",
+   "segments": [
+    {
+     "name": "Google Services (Search, YouTube, Ads)",
+     "cur": 342721,
+     "prev": 304930,
+     "growth": 12.4
+    },
+    {
+     "name": "Google Cloud",
+     "cur": 58705,
+     "prev": 43229,
+     "growth": 35.8
+    },
+    {
+     "name": "Other Bets",
+     "cur": 1537,
+     "prev": 1648,
+     "growth": -6.7
+    }
+   ]
+  },
+  {
+   "id": "TSLA",
+   "name": "Tesla",
+   "market": "US",
+   "exchange": "Nasdaq",
+   "currency": "USD",
+   "unit": "USD million",
+   "period": "Fiscal year ended 2025-12-31, revenue by product / service line",
+   "periodType": "year",
+   "source": "Tesla, Inc. Form 10-K (SEC EDGAR)",
+   "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm",
+   "filed": "2026-01-29",
+   "note": "Pulled automatically from the 10-K inline XBRL tags on SEC EDGAR. Segment lines are the ones the company tags itself; sub-lines that would double count were left out.",
+   "segments": [
+    {
+     "name": "Automotive sales",
+     "cur": 65821,
+     "prev": 72480,
+     "growth": -9.2
+    },
+    {
+     "name": "Regulatory credits",
+     "cur": 1993,
+     "prev": 2763,
+     "growth": -27.9
+    },
+    {
+     "name": "Automotive leasing",
+     "cur": 1712,
+     "prev": 1827,
+     "growth": -6.3
+    },
+    {
+     "name": "Energy generation & storage",
+     "cur": 12771,
+     "prev": 10086,
+     "growth": 26.6
+    },
+    {
+     "name": "Services & other",
+     "cur": 12530,
+     "prev": 10534,
+     "growth": 18.9
+    }
+   ]
+  },
+  {
+   "id": "NVDA",
+   "name": "NVIDIA",
+   "market": "US",
+   "exchange": "Nasdaq",
+   "currency": "USD",
+   "unit": "USD million",
+   "period": "Fiscal year ended 2026-01-25, revenue by product / service line",
+   "periodType": "year",
+   "source": "NVIDIA CORP Form 10-K (SEC EDGAR)",
+   "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+   "filed": "2026-02-25",
+   "note": "Pulled automatically from the 10-K inline XBRL tags on SEC EDGAR. Segment lines are the ones the company tags itself; sub-lines that would double count were left out.",
+   "segments": [
+    {
+     "name": "Data Center",
+     "cur": 193737,
+     "prev": 115186,
+     "growth": 68.2
+    },
+    {
+     "name": "Gaming",
+     "cur": 16042,
+     "prev": 11350,
+     "growth": 41.3
+    },
+    {
+     "name": "Professional Visualization",
+     "cur": 3191,
+     "prev": 1878,
+     "growth": 69.9
+    },
+    {
+     "name": "Automotive",
+     "cur": 2349,
+     "prev": 1694,
+     "growth": 38.7
+    },
+    {
+     "name": "OEM & Other",
+     "cur": 619,
+     "prev": 389,
+     "growth": 59.1
+    }
+   ]
+  },
+  {
+   "id": "META",
+   "name": "Meta Platforms",
+   "market": "US",
+   "exchange": "Nasdaq",
+   "currency": "USD",
+   "unit": "USD million",
+   "period": "Fiscal year ended 2025-12-31, revenue by reportable segment",
+   "periodType": "year",
+   "source": "Meta Platforms, Inc. Form 10-K (SEC EDGAR)",
+   "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026003942/meta-20251231.htm",
+   "filed": "2026-01-29",
+   "note": "Pulled automatically from the 10-K inline XBRL tags on SEC EDGAR. Segment lines are the ones the company tags itself; sub-lines that would double count were left out.",
+   "segments": [
+    {
+     "name": "Family of Apps (Facebook, Instagram, WhatsApp)",
+     "cur": 198759,
+     "prev": 162355,
+     "growth": 22.4
+    },
+    {
+     "name": "Reality Labs",
+     "cur": 2207,
+     "prev": 2146,
+     "growth": 2.8
+    }
+   ]
+  },
+  {
+   "id": "DIS",
+   "name": "Walt Disney",
+   "market": "US",
+   "exchange": "NYSE",
+   "currency": "USD",
+   "unit": "USD million",
+   "period": "Fiscal year ended 2025-09-27, revenue by reportable segment",
+   "periodType": "year",
+   "source": "Walt Disney Co Form 10-K (SEC EDGAR)",
+   "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1744489/000174448925000155/dis-20250927.htm",
+   "filed": "2025-11-13",
+   "note": "Pulled automatically from the 10-K inline XBRL tags on SEC EDGAR. Segment lines are the ones the company tags itself; sub-lines that would double count were left out.",
+   "segments": [
+    {
+     "name": "Entertainment",
+     "cur": 42466,
+     "prev": 41186,
+     "growth": 3.1
+    },
+    {
+     "name": "Sports (ESPN)",
+     "cur": 17672,
+     "prev": 17619,
+     "growth": 0.3
+    },
+    {
+     "name": "Experiences (parks, cruises)",
+     "cur": 36156,
+     "prev": 34151,
+     "growth": 5.9
+    }
+   ]
+  },
+  {
+   "id": "NKE",
+   "name": "Nike",
+   "market": "US",
+   "exchange": "NYSE",
+   "currency": "USD",
+   "unit": "USD million",
+   "period": "Fiscal year ended 2026-05-31, revenue by product / service line",
+   "periodType": "year",
+   "source": "NIKE, Inc. Form 10-K (SEC EDGAR)",
+   "sourceUrl": "https://www.sec.gov/Archives/edgar/data/320187/000032018726000088/nke-20260531.htm",
+   "filed": "2026-07-15",
+   "note": "Pulled automatically from the 10-K inline XBRL tags on SEC EDGAR. Segment lines are the ones the company tags itself; sub-lines that would double count were left out.",
+   "segments": [
+    {
+     "name": "Footwear",
+     "cur": 30538,
+     "prev": 30967,
+     "growth": -1.4
+    },
+    {
+     "name": "Apparel",
+     "cur": 13497,
+     "prev": 13045,
+     "growth": 3.5
+    },
+    {
+     "name": "Equipment",
+     "cur": 2220,
+     "prev": 2223,
+     "growth": -0.1
+    }
+   ]
+  },
+  {
+   "id": "WMT",
+   "name": "Walmart",
+   "market": "US",
+   "exchange": "Nasdaq",
+   "currency": "USD",
+   "unit": "USD million",
+   "period": "Fiscal year ended 2026-01-31, revenue by reportable segment",
+   "periodType": "year",
+   "source": "Walmart Inc. Form 10-K (SEC EDGAR)",
+   "sourceUrl": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000055/wmt-20260131.htm",
+   "filed": "2026-03-13",
+   "note": "Pulled automatically from the 10-K inline XBRL tags on SEC EDGAR. Segment lines are the ones the company tags itself; sub-lines that would double count were left out.",
+   "segments": [
+    {
+     "name": "Walmart U.S.",
+     "cur": 482975,
+     "prev": 462415,
+     "growth": 4.4
+    },
+    {
+     "name": "Walmart International",
+     "cur": 130423,
+     "prev": 121885,
+     "growth": 7
+    },
+    {
+     "name": "Sam's Club U.S.",
+     "cur": 93015,
+     "prev": 90238,
+     "growth": 3.1
+    }
+   ]
+  },
+  {
+   "id": "KO",
+   "name": "Coca-Cola",
+   "market": "US",
+   "exchange": "NYSE",
+   "currency": "USD",
+   "unit": "USD million",
+   "period": "Fiscal year ended 2025-12-31, revenue by product / service line",
+   "periodType": "year",
+   "source": "COCA COLA CO Form 10-K (SEC EDGAR)",
+   "sourceUrl": "https://www.sec.gov/Archives/edgar/data/21344/000162828026010047/ko-20251231.htm",
+   "filed": "2026-02-20",
+   "note": "Pulled automatically from the 10-K inline XBRL tags on SEC EDGAR. Segment lines are the ones the company tags itself; sub-lines that would double count were left out.",
+   "segments": [
+    {
+     "name": "Concentrate operations",
+     "cur": 28462,
+     "prev": 27725,
+     "growth": 2.7
+    },
+    {
+     "name": "Finished product operations (bottling)",
+     "cur": 19479,
+     "prev": 19336,
+     "growth": 0.7
+    }
+   ]
+  },
+  {
+   "id": "RELIANCE",
+   "name": "Reliance Industries",
+   "market": "India",
+   "exchange": "NSE",
+   "currency": "INR",
+   "unit": "Rs crore",
+   "period": "Q1 FY2026-27 (Apr-Jun 2026), revenue by segment",
+   "periodType": "quarter",
+   "source": "RIL media release, Q1 FY2026-27",
+   "sourceUrl": "https://www.ril.com",
+   "filed": "2026-07-17",
+   "note": "Curated by hand from the company's results release. Growth is the YoY % the company reports for the quarter. Oil & Gas EBITDA margin and Jio margin are far above the group; revenue size and margin are different things.",
+   "segments": [
+    {
+     "name": "Oil to Chemicals (O2C)",
+     "cur": 201803,
+     "growth": 30.4,
+     "margin": 8.4,
+     "prev": 154757
+    },
+    {
+     "name": "Retail (RRVL)",
+     "cur": 90408,
+     "growth": 7.4,
+     "margin": 7.9,
+     "prev": 84179
+    },
+    {
+     "name": "Digital Services (Jio Platforms)",
+     "cur": 45961,
+     "growth": 12,
+     "margin": 53.3,
+     "prev": 41037
+    },
+    {
+     "name": "Oil and Gas",
+     "cur": 6298,
+     "growth": 3.2,
+     "margin": 79,
+     "prev": 6103
+    }
+   ]
+  },
+  {
+   "id": "HUL",
+   "name": "Hindustan Unilever",
+   "market": "India",
+   "exchange": "NSE",
+   "currency": "INR",
+   "unit": "Rs crore",
+   "period": "FY2025-26 (Apr 2025-Mar 2026), segment revenue",
+   "periodType": "year",
+   "source": "HUL results, March quarter and FY2026 (hul.co.in)",
+   "sourceUrl": "https://www.hul.co.in/files/hul-mq-26-results.pdf",
+   "filed": "2026-04",
+   "note": "Curated by hand from HUL's audited results (segment revenue, FY26 vs FY25). Cross-checked against the FY2025-26 annual report figures.",
+   "segments": [
+    {
+     "name": "Home Care",
+     "cur": 23672,
+     "prev": 22958,
+     "growth": 3.1
+    },
+    {
+     "name": "Beauty & Wellbeing",
+     "cur": 14990,
+     "prev": 13523,
+     "growth": 10.8
+    },
+    {
+     "name": "Personal Care",
+     "cur": 9564,
+     "prev": 9166,
+     "growth": 4.3
+    },
+    {
+     "name": "Foods",
+     "cur": 14061,
+     "prev": 13501,
+     "growth": 4.1
+    },
+    {
+     "name": "Others (incl. exports)",
+     "cur": 2181,
+     "prev": 2180,
+     "growth": 0
+    }
+   ]
+  },
+  {
+   "id": "NESTLE",
+   "name": "Nestle",
+   "market": "Global",
+   "exchange": "SIX Swiss",
+   "currency": "CHF",
+   "unit": "CHF million",
+   "period": "FY2025 (Jan-Dec 2025), sales by product group",
+   "periodType": "year",
+   "source": "Nestle full-year results 2025",
+   "sourceUrl": "https://www.nestle.com",
+   "filed": "2026-02-19",
+   "note": "Curated by hand from Nestle's full-year 2025 results. Growth is reported sales growth (2025 vs 2024), not organic growth.",
+   "segments": [
+    {
+     "name": "Powdered & liquid beverages",
+     "cur": 25144,
+     "prev": 24598,
+     "growth": 2.2
+    },
+    {
+     "name": "PetCare",
+     "cur": 18406,
+     "prev": 18882,
+     "growth": -2.5
+    },
+    {
+     "name": "Nutrition & Health Science",
+     "cur": 14304,
+     "prev": 15137,
+     "growth": -5.5
+    },
+    {
+     "name": "Prepared dishes & cooking aids",
+     "cur": 10114,
+     "prev": 10711,
+     "growth": -5.6
+    },
+    {
+     "name": "Milk products & ice cream",
+     "cur": 9698,
+     "prev": 10397,
+     "growth": -6.7
+    },
+    {
+     "name": "Confectionery",
+     "cur": 8696,
+     "prev": 8449,
+     "growth": 2.9
+    },
+    {
+     "name": "Water",
+     "cur": 3128,
+     "prev": 3180,
+     "growth": -1.6
+    }
+   ]
+  }
+ ]
+}
