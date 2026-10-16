@@ -42,4 +42,4 @@ Add a US company: one entry in `scripts/config.mjs` (pick the axis and member na
 - Large companies are not really bought whole. The pitch is a thinking framework.
 - Not investment advice.
 
-Data: SEC EDGAR, Yahoo Finance, company results releases. Built by Kanishk Saini x Instinct.
+Data: SEC EDGAR, Yahoo Finance, company results releases. Built by Kanishk Saini.
