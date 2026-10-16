@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Company X-Ray - find the weak product, build the acquisition case</title>
+<meta name="description" content="Pick a listed company (US, India, global). See live share price, product revenue ranked from weakest to strongest from real filings, and an auto-written acquisition pitch built on the weak spot.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23070b11'/%3E%3Cpath d='M6 22l6-8 5 5 9-11' stroke='%237dd3fc' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='26' cy='8' r='3' fill='%23ff6b57'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <div class="brand"><span class="logo"></span><div><b>Company X-Ray</b><small>find the weak spot</small></div></div>
+    <input id="q" class="search" placeholder="Search company or ticker" autocomplete="off">
+    <div class="tabs" id="tabs"></div>
+    <nav id="list" class="list"></nav>
+    <div class="sidefoot">
+      <button id="keyBtn" class="ghost">Live price settings</button>
+      <p>Learning project. Not investment advice.</p>
+    </div>
+  </aside>
+
+  <main class="main" id="main">
+    <header class="top" id="top"></header>
+    <section class="grid">
+      <div class="card span2" id="chartCard"></div>
+      <div class="card span2" id="ladderCard"></div>
+      <div class="card" id="srcCard"></div>
+      <div class="card" id="statsCard"></div>
+      <div class="card span2 memo" id="pitchCard"></div>
+      <div class="card span2" id="honest"></div>
+    </section>
+  </main>
+</div>
+
+<dialog id="keyDlg">
+  <form method="dialog">
+    <h3>Make prices truly live</h3>
+    <p>The page tries Yahoo Finance first. Browsers often block that, so if the badge says SNAPSHOT you can paste a free <a href="https://twelvedata.com/pricing" target="_blank" rel="noopener">Twelve Data</a> API key. It stays in this browser only (localStorage). The free plan covers US stocks; India and Swiss tickers keep using the snapshot.</p>
+    <input id="keyIn" placeholder="Twelve Data API key" autocomplete="off">
+    <div class="row"><button value="save" id="keySave">Save</button><button value="cancel" class="ghost">Close</button></div>
+  </form>
+</dialog>
+
+<div class="wm">Kanishk Saini &times; Instinct</div>
+<script src="app.js"></script>
+</body>
+</html>
