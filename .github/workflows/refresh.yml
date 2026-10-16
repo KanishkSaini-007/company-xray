@@ -1,0 +1,21 @@
+name: Refresh data
+on:
+  schedule:
+    - cron: '20 */6 * * *'   # every 6 hours: new 10-K filings + fresh price snapshot
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: node scripts/build_data.mjs
+      - name: Commit if data changed
+        run: |
+          git config user.name "xray-bot"
+          git config user.email "xray-bot@users.noreply.github.com"
+          git add data/companies.json data/prices.json
+          git diff --cached --quiet || (git commit -m "data: refresh filings and prices" && git push)
