@@ -1,37 +1,45 @@
-# Company X-Ray - Power BI dashboard + acquisition pitch
+# Company X-Ray
 
-A Power BI project that studies real, listed companies (US, India, global) from two angles:
+Pick a listed company (US, India or global). The page shows its share price, ranks its products from weakest to strongest using real filings, and writes an acquisition pitch built on the weakest one.
 
-1. **Live share price** - pulled straight into Power BI from market APIs, refreshes on open.
-2. **Product / segment performance** - from the company's actual filings (SEC 10-K for US, results press releases for India, IR reports for global), ranked lowest to highest.
+**Live site:** https://kanishksaini-007.github.io/company-xray/
 
-Then the fun part: a pitch page that argues why someone should **acquire the company, using its weakest product as the reason** - the weak segment is the discount, the fix is the upside.
+I started this as a Power BI idea, then rebuilt it as a web page so anyone can open it with no software. It is a learning project: I wanted to see how far public data can go.
 
-## Companies included (real data, pulled Oct 16, 2026)
-| Company | Market | Weak spot found | Source |
-|---|---|---|---|
-| Apple (AAPL) | US | Wearables, Home & Accessories: -4% in FY2025, only shrinking category | Apple FY2025 Form 10-K, SEC EDGAR |
-| Reliance (RELIANCE.NS) | India | Oil & Gas: smallest segment, +3.2% growth, EBITDA -0.5% | RIL Q1 FY2026-27 media release |
-| Nestle (NESN.SW) | Global (Swiss) | Prepared dishes: -0.4% organic growth, only negative group | Nestle Full-Year Results 2025 |
+## What it does
+1. **Share price** - 1 year chart, 52-week range, day change. Tries a live Yahoo Finance quote in the browser every minute and falls back to a saved snapshot (the badge says LIVE or SNAPSHOT).
+2. **Product ranking** - each company's revenue by product or segment, sorted by growth (or by size). The slowest-growing line with at least 3% of revenue is flagged as the weak spot.
+3. **Pitch** - a written case for why a buyer should look at the company, using only the numbers on the page: weak spot, size of the prize if it grew at the company's pace, price timing, and risks.
 
-## What's in here
-- `data/` - real segment/product CSVs + 1 year of daily prices for all three companies
-- `powerquery/` - paste-in Power Query (M) scripts: live Yahoo prices, Stooq fallback, SEC EDGAR filings API, plus a source guide per market
-- `powerbi/` - step-by-step build guide, DAX measures (latest price, 52W range, segment share/rank, weakest-segment finder, RAG status), dark theme
-- `pitch/` - the acquisition pitch template + a worked pitch for each of the three companies
+## Companies (14)
+- **US (11)**, read automatically from SEC EDGAR 10-K filings: Apple, Microsoft, Amazon, Alphabet, Tesla, NVIDIA, Meta, Disney, Nike, Walmart, Coca-Cola
+- **India (2)**, typed in from official results: Reliance Industries, Hindustan Unilever
+- **Global (1)**: Nestle
 
-## How to rebuild it
-Follow `powerbi/build-guide.md`. About 2-3 hours in Power BI Desktop. Live prices need internet; the CSVs in `data/` work offline.
+## What is really live
+| Part | How fresh |
+|---|---|
+| Share price | Live when the browser can reach Yahoo (often blocked by CORS), otherwise the last GitHub Actions snapshot (every 6 hours) |
+| US product revenue | From the latest 10-K on EDGAR, re-checked every 6 hours. A 10-K only comes out once a year, so it cannot be "live" |
+| India / global product revenue | Copied by hand from the company's results release |
+| Pitch | Numbers computed, wording is a template. It finds the weak spot but cannot say why it is weak |
 
-## Honest limitations
-- Share prices are live-ish (15-20 min delayed, unofficial Yahoo endpoint). Segment/product numbers only update when the company reports - quarterly for US/India, half-yearly for many global companies. The dashboard says this on the page, because that's what makes it a real analyst project.
-- Segment splits are typed into CSVs from filings by hand (10 min per company per quarter). There is no free API that streams product-level revenue.
+For truly live US prices, paste a free [Twelve Data](https://twelvedata.com) key in "Live price settings". It stays in your browser only.
 
-## What I learned
-- Power Query against real APIs (JSON and CSV), with a fallback source
-- Modeling two data grains (daily prices vs quarterly segments) in one report
-- DAX: ranking, share %, RAG conditional logic
-- Reading actual filings: SEC 10-K product tables, Indian results press releases, European annual reports
-- Turning analysis into an investment-banking style pitch instead of just charts
+## How the data is built
+`scripts/edgar_segments.mjs` downloads a company's latest 10-K, reads the inline XBRL tags and collects revenue facts that have a product or segment dimension. `scripts/config.mjs` says which tagged lines to use per company (parent totals would double count). `scripts/build_data.mjs` writes `data/companies.json` and `data/prices.json`.
 
-Built while learning Power BI and equity research. MBA Tech, NMIMS.
+```bash
+node scripts/build_data.mjs      # Node 18+
+python -m http.server            # then open http://localhost:8000
+```
+
+Add a US company: one entry in `scripts/config.mjs` (pick the axis and member names that `node scripts/edgar_segments.mjs TICKER` prints).
+
+## Limits I know about
+- Segment definitions change between years, so growth for a renamed line can be off.
+- Reliance is one quarter (Q1 FY27) with YoY growth as reported; the others are full years.
+- Large companies are not really bought whole. The pitch is a thinking framework.
+- Not investment advice.
+
+Data: SEC EDGAR, Yahoo Finance, company results releases. Built by Kanishk Saini x Instinct.
