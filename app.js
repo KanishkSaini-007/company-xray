@@ -194,6 +194,20 @@ document.addEventListener('click', e => {
   else if (t.dataset.r) { state.range = +t.dataset.r; renderChart(); }
   else if (t.dataset.s) { state.sort = t.dataset.s; renderLadder(); }
 });
+// keyboard: / focuses search, ArrowUp/ArrowDown or j/k steps through the visible companies
+document.addEventListener('keydown', e => {
+  if ($('#keyDlg').open) return;
+  if (e.key === '/' && document.activeElement !== $('#q')) { e.preventDefault(); $('#q').focus(); return; }
+  if (document.activeElement === $('#q') || document.activeElement === $('#keyIn')) return;
+  const down = e.key === 'ArrowDown' || e.key === 'j', up = e.key === 'ArrowUp' || e.key === 'k';
+  if (!down && !up) return;
+  const list = visible(); if (!list.length) return;
+  const i = list.findIndex(c => c.id === state.id);
+  const n = down ? Math.min(list.length - 1, i + 1) : Math.max(0, i - 1);
+  if (n === i) return;
+  e.preventDefault();
+  state.id = list[n].id; location.hash = state.id; renderAll(); refreshLive(state.id);
+});
 $('#q').addEventListener('input', e => { state.q = e.target.value; renderList(); });
 $('#keyBtn').onclick = () => { $('#keyIn').value = localStorage.getItem('xray_td_key') || ''; $('#keyDlg').showModal(); };
 $('#keySave').onclick = () => { const v = $('#keyIn').value.trim(); v ? localStorage.setItem('xray_td_key', v) : localStorage.removeItem('xray_td_key'); setTimeout(() => refreshLive(state.id), 50); };
