@@ -111,7 +111,20 @@ function renderChart() {
   el.innerHTML = `<div class="rng">${[[21, '1M'], [126, '6M'], [252, '1Y']].map(([n, t]) => `<button data-r="${n}" class="${state.range === n ? 'on' : ''}">${t}</button>`).join('')}</div>
   <h2>Share price trend</h2><p class="sub">${ret >= 0 ? 'Up' : 'Down'} <b class="${ret >= 0 ? 'up' : 'dn'}">${pct(ret)}</b> over the selected window &middot; daily closes from Yahoo Finance</p>
   <svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Price chart">${ticks}${xl}<defs><linearGradient id="g" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="${col}" stop-opacity=".25"/><stop offset="1" stop-color="${col}" stop-opacity="0"/></linearGradient></defs>
-  <path d="${d} L${x(pts.length - 1)} ${H - P.b} L${P.l} ${H - P.b}Z" fill="url(#g)"/><path d="${d}" fill="none" stroke="${col}" stroke-width="2" stroke-linejoin="round"/><circle cx="${x(pts.length - 1)}" cy="${y(pts.at(-1)[1])}" r="4" fill="${col}"/></svg>`;
+  <path d="${d} L${x(pts.length - 1)} ${H - P.b} L${P.l} ${H - P.b}Z" fill="url(#g)"/><path d="${d}" fill="none" stroke="${col}" stroke-width="2" stroke-linejoin="round"/><circle cx="${x(pts.length - 1)}" cy="${y(pts.at(-1)[1])}" r="4" fill="${col}"/><circle class="mk" r="5" fill="#0b1220" stroke="${col}" stroke-width="2" style="display:none"/></svg><div class="chartTip" style="display:none;position:absolute;top:8px;left:0;background:#0b1220;border:1px solid #1c2b3d;color:#dbe7f3;padding:4px 10px;border-radius:6px;font:12px 'JetBrains Mono',monospace;pointer-events:none;white-space:nowrap;z-index:2"></div>`;
+  el.style.position = 'relative';
+  const svgEl = el.querySelector('svg'), tip = el.querySelector('.chartTip'), mkEl = el.querySelector('.mk');
+  svgEl.addEventListener('mousemove', e => {
+    const r = svgEl.getBoundingClientRect(); if (!r.width) return;
+    const fx = (e.clientX - r.left) / r.width * W;
+    const i = Math.max(0, Math.min(pts.length - 1, Math.round((fx - P.l) / (W - P.l - P.r) * (pts.length - 1))));
+    const [t, v] = pts[i];
+    tip.style.display = 'block';
+    tip.style.left = Math.max(4, Math.min(r.width - 160, e.clientX - r.left + 12)) + 'px';
+    tip.textContent = new Date(t * 1000).toLocaleDateString([], { day: 'numeric', month: 'short', year: 'numeric' }) + '  ' + px(v, c.currency);
+    mkEl.style.display = ''; mkEl.setAttribute('cx', x(i)); mkEl.setAttribute('cy', y(v));
+  });
+  svgEl.addEventListener('mouseleave', () => { tip.style.display = 'none'; mkEl.style.display = 'none'; });
 }
 function renderLadder() {
   const c = cur(), a = analyse(c);
