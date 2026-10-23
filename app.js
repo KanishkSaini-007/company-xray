@@ -2,7 +2,7 @@
 // Company X-Ray. Plain JS, no libraries. Data: data/companies.json (SEC EDGAR + curated filings),
 // data/prices.json (Yahoo snapshot refreshed by GitHub Actions). Live prices are attempted in the browser.
 const $ = s => document.querySelector(s);
-const state = { companies: [], prices: {}, snapshot: null, id: null, market: 'All', sort: 'growth', range: 252, live: {}, q: '' };
+const state = { companies: [], prices: {}, snapshot: null, id: null, market: ['All', 'US', 'India', 'Global'].includes(localStorage.getItem('xray_market')) ? localStorage.getItem('xray_market') : 'All', sort: ['growth', 'rev'].includes(localStorage.getItem('xray_sort')) ? localStorage.getItem('xray_sort') : 'growth', range: [21, 126, 252].includes(+localStorage.getItem('xray_range')) ? +localStorage.getItem('xray_range') : 252, live: {}, q: '' };
 const YAHOO = { AAPL: 'AAPL', MSFT: 'MSFT', AMZN: 'AMZN', GOOGL: 'GOOGL', TSLA: 'TSLA', NVDA: 'NVDA', META: 'META', DIS: 'DIS', NKE: 'NKE', WMT: 'WMT', KO: 'KO', RELIANCE: 'RELIANCE.NS', HUL: 'HINDUNILVR.NS', NESTLE: 'NESN.SW' };
 const SYM = { USD: '$', INR: 'Rs ', CHF: 'CHF ' };
 
@@ -202,10 +202,10 @@ function renderAll() { renderTabs(); renderList(); renderTop(); renderChart(); r
 // ---------- events ----------
 document.addEventListener('click', e => {
   const t = e.target.closest('[data-m],[data-id],[data-r],[data-s]'); if (!t) return;
-  if (t.dataset.m) { state.market = t.dataset.m; renderTabs(); renderList(); }
+  if (t.dataset.m) { state.market = t.dataset.m; localStorage.setItem('xray_market', state.market); renderTabs(); renderList(); }
   else if (t.dataset.id) { state.id = t.dataset.id; location.hash = state.id; renderAll(); refreshLive(state.id); window.scrollTo({ top: 0, behavior: 'smooth' }); }
-  else if (t.dataset.r) { state.range = +t.dataset.r; renderChart(); }
-  else if (t.dataset.s) { state.sort = t.dataset.s; renderLadder(); }
+  else if (t.dataset.r) { state.range = +t.dataset.r; localStorage.setItem('xray_range', state.range); renderChart(); }
+  else if (t.dataset.s) { state.sort = t.dataset.s; localStorage.setItem('xray_sort', state.sort); renderLadder(); }
 });
 // keyboard: / focuses search, ArrowUp/ArrowDown or j/k steps through the visible companies
 document.addEventListener('keydown', e => {
