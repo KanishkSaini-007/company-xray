@@ -90,6 +90,7 @@ function badge(id) {
 }
 function renderTop() {
   const c = cur(); const l = latest(c.id);
+  document.title = c.name + (l ? ' - ' + px(l.price, c.currency) : '') + ' - Company X-Ray';
   const ch = l && l.prev ? l.price - l.prev : null, chp = ch != null ? ch / l.prev * 100 : null;
   $('#top').innerHTML = `<div><h1>${esc(c.name)}</h1><div class="chips"><span class="chip">${esc(YAHOO[c.id])}</span><span class="chip">${esc(c.exchange)}</span><span class="chip">${esc(c.market)}</span><span class="chip">${esc(c.currency)}</span></div></div>
   <div class="bigpx">${l ? `<div class="n">${px(l.price, c.currency)}</div><div class="d ${ch >= 0 ? 'up' : 'dn'}">${ch >= 0 ? '+' : ''}${ch.toFixed(2)} (${pct(chp, 2)}) vs previous close</div>${badge(c.id)}` : '<div class="err">No price data</div>'}</div>`;
