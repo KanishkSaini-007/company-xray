@@ -198,7 +198,7 @@ function renderHonest() {
   <li><b>Coverage:</b> ${state.companies.length} companies for now. Adding a US company is one entry in <code>scripts/config.mjs</code>.</li></ul>`;
 }
 const cur = () => state.companies.find(c => c.id === state.id);
-function renderAll() { renderTabs(); renderList(); renderTop(); renderChart(); renderLadder(); renderSrc(); renderStats(); renderPitch(); renderHonest(); }
+function renderAll() { localStorage.setItem('xray_last', state.id); renderTabs(); renderList(); renderTop(); renderChart(); renderLadder(); renderSrc(); renderStats(); renderPitch(); renderHonest(); }
 
 // ---------- events ----------
 document.addEventListener('click', e => {
@@ -232,8 +232,8 @@ window.addEventListener('hashchange', () => { const h = location.hash.slice(1); 
     const [co, pr] = await Promise.all([fetch('data/companies.json').then(r => r.json()), fetch('data/prices.json').then(r => r.json())]);
     state.companies = co.companies; state.generated = pr.generated || co.generated;
     for (const [k, v] of Object.entries(pr.series)) state.prices[k] = v;
-    const h = location.hash.slice(1);
-    state.id = state.companies.some(c => c.id === h) ? h : 'AAPL';
+    const h = location.hash.slice(1), last = localStorage.getItem('xray_last');
+    state.id = state.companies.some(c => c.id === h) ? h : state.companies.some(c => c.id === last) ? last : 'AAPL';
     renderAll(); refreshLive(state.id);
     setInterval(() => refreshLive(state.id), 60000);
   } catch (e) { $('#main').innerHTML = '<p class="err">Could not load data files. If you opened index.html straight from disk, serve the folder instead: <code>python -m http.server</code></p>'; console.error(e); }
