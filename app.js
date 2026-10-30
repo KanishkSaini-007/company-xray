@@ -77,10 +77,12 @@ function renderTabs() {
   $('#tabs').innerHTML = ['All', 'US', 'India', 'Global'].map(m => `<button class="${state.market === m ? 'on' : ''}" data-m="${m}">${m}</button>`).join('');
 }
 function renderList() {
-  $('#list').innerHTML = visible().map(c => {
+  const vis = visible();
+  const count = state.q ? `<p class="sub" style="padding:2px 2px 8px">${vis.length} of ${state.companies.length} companies</p>` : '';
+  $('#list').innerHTML = count + (vis.map(c => {
     const l = latest(c.id); const ch = l && l.prev ? (l.price / l.prev - 1) * 100 : null;
     return `<button class="item ${c.id === state.id ? 'on' : ''}" data-id="${c.id}"><span><b>${esc(c.name)}</b><small>${esc(YAHOO[c.id])} &middot; ${esc(c.exchange)}</small></span><span class="px">${l ? px(l.price, c.currency) : '-'}${ch != null ? `<i class="${ch >= 0 ? 'up' : 'dn'}">${pct(ch, 2)}</i>` : ''}</span></button>`;
-  }).join('') || '<p class="err">No match.</p>';
+  }).join('') || '<p class="err">No match.</p>');
 }
 function badge(id) {
   const l = latest(id); if (!l) return '';
@@ -151,7 +153,7 @@ function renderStats() {
   const pos = l.hi && l.lo ? (l.price - l.lo) / (l.hi - l.lo) * 100 : null;
   const first = s.pts[0]?.[1], r1 = first ? (l.price / first - 1) * 100 : null;
   $('#statsCard').innerHTML = `<h2>Share snapshot</h2><p class="sub">${esc(s.exchange || c.exchange)} &middot; ${esc(c.currency)}</p>
-  <dl class="kv"><dt>Price</dt><dd>${px(l.price, c.currency)}</dd><dt>52-week high</dt><dd>${l.hi ? px(l.hi, c.currency) : '-'}</dd><dt>52-week low</dt><dd>${l.lo ? px(l.lo, c.currency) : '-'}</dd><dt>Position in range</dt><dd>${pos != null ? pos.toFixed(0) + '%' : '-'}</dd><dt>1-year return</dt><dd class="${r1 >= 0 ? 'up' : 'dn'}">${r1 != null ? pct(r1) : '-'}</dd></dl>`;
+  <dl class="kv"><dt>Price</dt><dd>${px(l.price, c.currency)}</dd><dt>52-week high</dt><dd>${l.hi ? px(l.hi, c.currency) : '-'}</dd><dt>52-week low</dt><dd>${l.lo ? px(l.lo, c.currency) : '-'}</dd><dt>Position in range</dt><dd>${pos != null ? pos.toFixed(0) + '%' : '-'}</dd><dt>1-year return</dt><dd class="${r1 != null ? (r1 >= 0 ? 'up' : 'dn') : ''}">${r1 != null ? pct(r1) : '-'}</dd></dl>`;
 }
 function pitch(c) {
   const a = analyse(c), l = latest(c.id), s = series(c.id);
