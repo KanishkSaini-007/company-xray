@@ -225,6 +225,17 @@ document.addEventListener('keydown', e => {
   state.id = list[n].id; location.hash = state.id; renderAll(); refreshLive(state.id);
 });
 $('#q').addEventListener('input', e => { state.q = e.target.value; renderList(); });
+// search: Enter opens the first match, Escape clears the box
+$('#q').addEventListener('keydown', e => {
+  if (e.key === 'Enter') {
+    const first = visible()[0];
+    if (!first) return;
+    state.id = first.id; location.hash = first.id; renderAll(); refreshLive(first.id);
+    e.target.blur(); window.scrollTo({ top: 0, behavior: 'smooth' });
+  } else if (e.key === 'Escape') {
+    e.target.value = ''; state.q = ''; renderList(); e.target.blur();
+  }
+});
 $('#keyBtn').onclick = () => { $('#keyIn').value = localStorage.getItem('xray_td_key') || ''; $('#keyDlg').showModal(); };
 $('#keySave').onclick = () => { const v = $('#keyIn').value.trim(); v ? localStorage.setItem('xray_td_key', v) : localStorage.removeItem('xray_td_key'); setTimeout(() => refreshLive(state.id), 50); };
 window.addEventListener('hashchange', () => { const h = location.hash.slice(1); if (h && h !== state.id && state.companies.some(c => c.id === h)) { state.id = h; renderAll(); refreshLive(h); } });
